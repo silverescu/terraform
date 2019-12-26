@@ -92,7 +92,7 @@ resource "aws_security_group_rule" "ftp" {
   from_port = 21
   to_port = 21
   protocol = "tcp"
-  cidr_blocks = ["90.255.235.195/32"]
+  cidr_blocks = ["90.255.235.195/32", "89.35.209.174/32", "208.107.54.189/32"]
   security_group_id = aws_security_group.sg01.id
 }
 
@@ -211,7 +211,9 @@ resource "aws_s3_bucket_policy" "cctv" {
             "Condition": {
                 "IpAddress": {
                     "aws:SourceIp": [
-                        "90.255.235.195/32"
+                        "90.255.235.195/32",
+                        "89.35.209.174/32",
+                        "208.107.54.189/32"
                     ]
                 }
             }
